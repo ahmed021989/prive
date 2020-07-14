@@ -1,0 +1,266 @@
+@font-face {
+  font-family: SourceSansPro;
+  src: url(SourceSansPro-Regular.ttf);
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  color: #0087C3;
+  text-decoration: none;
+}
+
+body {
+  width:    30cm;
+  height: 21cm;
+  position: relative;
+  margin: 0 auto; 
+  color: #000000;
+  background: #FFFFFF; 
+  font-family: SourceSansPro;
+  font-size: 14px; 
+
+
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #F6740A;
+}
+
+#logo {
+  float: left;
+  margin-top: 15px;
+}
+#logo1 {
+  float: right;
+  margin-top: 15px;
+}
+
+#logo img {
+  height: 100px;
+}
+#logo1 img {
+  height: 100px;
+}
+
+#company {
+  float: center;
+  text-align: right;
+}
+
+
+#details {
+  margin-bottom: 50px;
+}
+
+#client {
+  padding-left: 6px;
+  border-left: 6px solid #0087C3;
+  float: left;
+}
+
+#client .to {
+  color: #777777;
+}
+
+h2.name {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: 0;
+}
+h2.name1 {
+  font-size:1.3em;
+    font-weight: normal;
+  margin: 0;
+}
+
+
+#invoice {
+  float: center;
+  text-align: center;
+   font-family: "Times New Roman", Georgia, Serif;
+  
+}
+#invoice1 {
+	padding-right:90px;
+	padding-left:90px;
+  float: right;
+  text-align: right;
+   font-family: "Times New Roman", Georgia, Serif;
+  
+}
+#invoice2 {
+
+  float: right;
+  text-align: right;
+   font-family: "Times New Roman", Georgia, Serif;
+  
+}
+
+#invoice h1 {
+  color: #170c50;
+  font-size: 2.7em;
+  line-height: 1em;
+  font-weight: normal;
+  margin: 0  0 10px 0;
+}
+#invoice1 h1 {
+	direction : RTL;
+  font-size: 2em;
+  line-height: 1.9em;
+  font-weight: normal;
+  margin: 0  0 10px 0;
+}
+#invoice2 h1 {
+	direction : RTL;
+  font-size: 2em;
+  line-height: 1.9em;
+  font-weight: normal;
+  margin: 0  0 10px 0;
+}
+
+#invoice .date {
+  font-size: 1.2em;
+  color: #170c50;
+}
+#invoice1 .date {
+	text-align: center;
+	direction : RTL;
+  font-size: 1.8em;
+  color: #170c50;
+}
+#invoice2 .date {
+	text-align: center;
+	direction : RTL;
+  font-size: 1.8em;
+  color: #170c50;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+table th,
+table  {
+  padding: 5px;
+  text-align: right;
+}
+
+table th {
+  white-space: nowrap;        
+  font-weight: normal;
+}
+
+table td {
+  text-align: right;
+}
+
+table td h3{
+
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 0 0.2em 0;
+}
+
+table .no {
+  color: #000000;
+  font-size: 1.6em;
+  /* background: #57B223; */
+  border-bottom: 1px solid #000000;
+   border-TOP: 1px solid #000000;
+}
+
+table .desc {
+  text-align: right;
+    font-size: 18px;
+  border-bottom: 1px solid #000000;
+   border-TOP: 1px solid #000000;
+}
+
+table .unit {
+border-bottom: 1px solid #000000;
+ border-TOP: 1px solid #000000;
+}
+
+table .qty {
+ font-size: 18px;
+	border-bottom: 1px solid #000000;
+	 border-TOP: 1px solid #000000;
+}
+
+table .total {
+	  /* text-align: right; */
+	  background: #DDDDDD;
+	  color: #000000;
+	  font-size: 18px;
+	  border-bottom: 1px solid #000000;
+	  border-TOP: 1px solid #000000;
+}
+
+table td.unit,
+table td.qty,
+table td.total {
+  font-size: 1.2em;
+}
+
+table tbody tr:last-child td {
+  border: none;
+}
+
+table tfoot td {
+  padding: 13px 2px;
+  border-bottom: none;
+  font-size: 1.2em;
+  white-space: nowrap;
+  border-top: 1px solid #AAAAAA;
+}
+
+table tfoot tr:first-child td {
+  border-top: none; 
+   border-TOP: 1px solid #000000;
+}
+
+table tfoot tr:last-child td {
+  color: #57B223;
+  font-size: 1.4em;
+  border-top: 1px solid #57B223; 
+
+}
+
+table tfoot tr td:first-child {
+  border: none;
+}
+
+#thanks{
+  font-size: 2em;
+  margin-bottom: 50px;
+}
+
+#notices{
+  padding-left: 6px;
+  border-left: 6px solid #0087C3;  
+}
+
+#notices .notice {
+  font-size: 1.2em;
+}
+
+footer {
+  color: #777777;
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  bottom: 0px;
+  border-top: 2px solid #F6740A;
+  padding: 20px 0;
+  text-align: center;
+}
