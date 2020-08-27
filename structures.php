@@ -76,23 +76,23 @@ if ($user->type =='administrateur' or 'Admin_dsp' or "DGSS-RH"){
 												<th>N° Ord  </th>
 												<th>Nom Wilaya</th>
 												<th>Population</th>
-												<th>Nbr cabinet généraliste</th>
-												<th>Nbr Employés</th>
-												<th>Nbr officine pharmaceutique</th>
-												<th>Nbr Employés</th>
+												<th style="background: #15cfec">Nbr cabinet généraliste</th>
+												<th style="background: #15cfec">Nbr Employés</th>
+												<th style="background: #15ec26">Nbr officine pharmaceutique</th>
+												<th style="background: #15ec26">Nbr Employés</th>
 
-												<th>Nbr cabinet de specialistes</th>
-												<th>Nbr Employés specialistes</th>
-												<th>Nbr Employés géneralistes</th>
-												<th>Total cabinet specialistes</th>
+												<th style="background: #1589ec">Nbr cabinet de specialistes</th>
+												<th style="background: #1589ec">Nbr Employés specialistes</th>
+												<th style="background: #1589ec">Nbr Employés géneralistes</th>
+												<th style="background: #1589ec">Total cabinet specialistes</th>
 
 
 												
-												<th>Nbr cabinet de groupe specialistes</th>
-												<th>Nbr cabinet de groupe generalistes</th>
-												<th>Nbr Employés specialistes</th>
-												<th>Nbr Employés géneralistes</th>
-												<th>Total groupe</th>
+												<th style="background: #ecaa15">Nbr cabinet de groupe specialistes</th>
+												<th style="background: #ecaa15">Nbr cabinet de groupe generalistes</th>
+												<th style="background: #ecaa15">Nbr Employés specialistes</th>
+												<th style="background: #ecaa15">Nbr Employés géneralistes</th>
+												<th style="background: #ecaa15">Total groupe</th>
 
 
 
@@ -198,9 +198,12 @@ if ($user->type =='administrateur' or 'Admin_dsp' or "DGSS-RH"){
 													}
 
 
-													echo "<td>".$i."</td> <td>".$nom_wil."</td>"."<td style='text-align:right'>".number_format($pop_wil, 0, ',', ' ')."</td><td style='text-align:right'>".number_format($nbr_structure_m, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_m, 0, ',', ' ')."</td><td style='text-align:right'>".number_format($nbr_structure_ph, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_ph, 0, ',', ' ')."</td>
-													<td style='text-align:right'>".number_format($nbr_structure_sp, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_sp, 0, ',', ' ')."</td><td style='text-align:right'>".number_format($nbr_employe_gen, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_total_spe, 0, ',', ' ')."</td>
-													<td style='text-align:right'>".number_format($nbr_structure_groupe_sp, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_structure_groupe_gp, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_specialiste, 0, ',', ' ')."</td><td style='text-align:right'>".number_format($nbr_employe_generaliste, 0, ',', ' ')."</td>"."<td style='text-align:right'>".number_format($nbr_employe_total_groupe, 0, ',', ' ')."</td>";
+													echo "<td>".$i."</td> <td>".$nom_wil."</td>"."<td style='text-align:right'>".number_format($pop_wil, 0, ',', ' ')."</td>
+												     <td style='text-align:right;background: #15cfec'>".number_format($nbr_structure_m, 0, ',', ' ')."</td>".
+													"<td style='text-align:right;background: #15cfec'>".number_format($nbr_employe_m, 0, ',', ' ')."</td>
+													<td style='text-align:right;background: #15ec26'>".number_format($nbr_structure_ph, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #15ec26'>".number_format($nbr_employe_ph, 0, ',', ' ')."</td> 
+													<td style='text-align:right;background: #1589ec'>".number_format($nbr_structure_sp, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #1589ec'>".number_format($nbr_employe_sp, 0, ',', ' ')."</td><td style='text-align:right;background: #1589ec'>".number_format($nbr_employe_gen, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #1589ec'>".number_format($nbr_employe_total_spe, 0, ',', ' ')."</td>
+													<td style='text-align:right;background: #ecaa15'>".number_format($nbr_structure_groupe_sp, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #ecaa15'>".number_format($nbr_structure_groupe_gp, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #ecaa15'>".number_format($nbr_employe_specialiste, 0, ',', ' ')."</td><td style='text-align:right;background: #ecaa15'>".number_format($nbr_employe_generaliste, 0, ',', ' ')."</td>"."<td style='text-align:right;background: #ecaa15'>".number_format($nbr_employe_total_groupe, 0, ',', ' ')."</td>";
 
 										// echo $nbr_employe ." et ".$nbr_structure." i ".$i."<br>";
 													?>

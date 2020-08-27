@@ -18,7 +18,7 @@ if(!$session->is_logged_in()) {
 }
 ?>
 <?php
-$titre = "Listes des employés";
+$titre = "Géolocalisation des structures";
 $active_menu = "index";
 $header = array('employer');
 if ($user->type =='administrateur' or 'Admin_dsp'){
