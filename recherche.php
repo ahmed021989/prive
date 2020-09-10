@@ -18,7 +18,7 @@ if(!$session->is_logged_in()) {
 }
 ?>
 <?php
-$titre = "Listes des employés";
+$titre = "Recherche d'un employé";
 $active_menu = "index";
 $header = array('employer');
 if ($user->type =='administrateur' or 'Admin_dsp'){
@@ -83,6 +83,7 @@ if ($user->type =='administrateur' or 'Admin_dsp'){
                                             <tr>
 											<?php  if($user->type=="administrateur"){?>
                                                 <th >Mouvement</th>
+                                                <th >Photo</th>
 												<?php  }?>
 												<?php  if($user->type=="DGSS-RH"){?>
                                                 <th >Dossier</th>
@@ -136,6 +137,7 @@ $erreur4=4;
 												
 												<li><a style="font-size:12px" href="ajouter_autre_employe.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Ajouter autre employés a cette structure ">Ajouter</a></li>
 												<li> <a style="font-size:12px" href="edit_employer_pere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé"> Modifier</a></li>
+												<li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
 													<li><a style="font-size:12px"   href="transfere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Transfère de locale">Transfère </a></li>
 											
 												<li><a style="font-size:12px"  href="detail_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank"  data-toggle="tooltip" title="Detail l'employé">Detail </a></li>
@@ -145,6 +147,17 @@ $erreur4=4;
 											</div>
 											</td>
 											 <?php  }?>
+											 	  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td> 
 												
 												  <td> <?php echo $employer->identite_jurdique; ?></td>
 												  <td <?php if($erreur4==4){ ?> style="background:red;color:#fff;text-align:center "  <?php } ?>>												
@@ -209,6 +222,7 @@ $erreur4=4;
 												<li><a style="font-size:12px" href="ajouter_autre_employe.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Ajouter autre employés a cette structure ">Ajouter</a></li>
 
 												<li><a style="font-size:12px"  href="edit_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé">Modifier</a></li>
+												<li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
                                     
 													<li><a style="font-size:12px"   href="transfere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Transfère de locale">Transfère </a></li>
 											
@@ -218,7 +232,18 @@ $erreur4=4;
 												</ul>
 												</div>
 												</td>
-												<?php  }?>												
+												<?php  }?>	
+													  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td> 											
 												 <td> <?php echo $employer->identite_jurdique; ?></td>
 											  <td <?php if($erreur4==4){ ?> style="background:red;color:#fff;text-align:center "  <?php } ?>>												
 												<?php
@@ -291,6 +316,7 @@ $erreur4=4;
                                         <ul class="dropdown-menu" role="menu" >
 												
 											  <li> <a style="font-size:12px"  href="edit_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé">Modifier</a></li>
+											  <li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
                                 	<li><a style="font-size:12px"  href="detail_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Detail l'employé">Detail </a></li>
                                         <li><a style="font-size:12px" onClick="delete_row('<?php echo $employer->id_employe;?>');change_message();" target="_blank" data-toggle="tooltip" title="Classé l'employé">Classé</a></li>
 							<li><a style="font-size:12px"   href="fin_relation_fis.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Fin de relation de travail">Fin de Contrat </a></li>
@@ -299,6 +325,17 @@ $erreur4=4;
 												</div>
 												</td>
 												<?php }?>
+																  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td> 
 												<td> <?php echo $employer->identite_jurdique; ?></td>
 											  <td <?php if($erreur4==4){ ?> style="background:red;color:#fff;text-align:center "  <?php } ?>>												
 												<?php
@@ -440,6 +477,7 @@ $erreur4=4;
                                         <thead>
                                             <tr>
                                           <th style="width:100px !important">Mouvement  </th>
+                                          <th>Photo</th>
 										<th>Identitie juridique</th>
 												  <th>Type d'établissement</th>
 												  
@@ -489,6 +527,7 @@ $erreur4=4;
 												
 												<li><a style="font-size:12px" href="ajouter_autre_employe.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Ajouter autre employés a cette structure ">Ajouter  </a></li>
 												<li> <a style="font-size:12px" href="edit_employer_pere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé"> Modifier </a></li>
+												<li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
 											<li><a style="font-size:12px"  href="detail_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Detail l'employé">Detail </a></li>
 												<li><a style="font-size:12px"   href="transfere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Transfère de locale">Transfère </a></li>
 													<li><a style="font-size:12px" onClick="delete_row('<?php echo $employer->id_employe;?>');change_message_per();"  data-toggle="tooltip" title="Classé l'employé">Classé </a></span></li>
@@ -497,9 +536,23 @@ $erreur4=4;
 
 												</ul>
 												</div>
-												<?php  }?>
 
+												<?php  }?>
 												</td>
+
+
+												
+												  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td> 
 												
 												<td> <?php echo $employer->identite_jurdique; ?></td>
 												  <td <?php if($erreur4==4){ ?> style="background:red;color:#fff;text-align:center "  <?php } ?>>												
@@ -550,6 +603,7 @@ $erreur4=4;
 												<li><a style="font-size:12px" href="ajouter_autre_employe.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Ajouter autre employés a cette structure ">Ajouter</a></li>
 
 												<li><a style="font-size:12px"  href="edit_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé">Modifier </a></li>
+												<li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
                              
 												<li><a style="font-size:12px"   href="transfere.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Transfère de locale">Transfère </a></li>
 													
@@ -560,6 +614,17 @@ $erreur4=4;
 												</div>
 												<?php  }?>
 												</td>	
+													  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td>
 												<td> <?php echo $employer->identite_jurdique; ?></td>
 												  <td <?php if($erreur4==4){ ?> style="background:red;color:#fff;text-align:center "  <?php } ?>>												
 												<?php
@@ -614,6 +679,7 @@ $erreur4=4;
                                                                            <ul class="dropdown-menu" role="menu" style="z-index:1">
 										
 											    <li><a style="font-size:12px"  href="edit_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Modifier l'employé"> Modifier</a></li>
+											    <li><a style="font-size:12px"   href="affiliation.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Photo et affiliation">Photo et affiliation </a></li>
                                    <li><a style="font-size:12px"  href="detail_employer.php?id_employe=<?php echo $employer->id_employe;?>" target="_blank" data-toggle="tooltip" title="Detail l'employé">Detail </a></li>
 												                         <li><a style="font-size:12px"  onClick="delete_row('<?php echo $employer->id_employe;?>');change_message();" target="_blank" data-toggle="tooltip" title="Classé l'employé">Classé</a></li>
 													<li><a style="font-size:12px"   href="fin_relation_fis.php?id_employe=<?php echo $employer->id_employe;?>" data-toggle="tooltip" target="_blank" title="Fin de relation de travail">Fin de Contrat </a></li>
@@ -623,6 +689,17 @@ $erreur4=4;
 												</div>
 												<?php }?>
 												</td>
+														  <td>
+													<?php 
+													$src_photo="";
+													if($affiliation=Affiliation::trouve_par_id($employer->id_employe))
+													{
+														$src_photo="doc_pdf/".$affiliation->photo;
+													}
+													?>
+												<img class='img-responcive pull-right'    type='image' id='photo' src='<?php if($src_photo!=''){ echo $src_photo; }  else { ?> http://placehold.it/100 <?php } ?>'  width='40' height='40'  onClick='affiche(this)'/>
+													
+													</td> 
 												  
 												
 											<td> <?php echo $employer->identite_jurdique; ?></td>
@@ -836,6 +913,43 @@ return $texte;
             </div>
         </div>
       
+
+         <div class="message-box animated fadedIn" data-sound="alert" id="modal_apercu2" >
+    	<br><br><br><br>
+    	<br><br>
+    	
+    	<div class="row">
+    		<div class="mb-middle col-sm-6 col-sm-offset-3" style="border-radius: 5px; background:#fff; ">
+    			<br>
+    			<div class="mb-title"><span ></span>  <strong></strong> </div>
+
+    			<center>
+
+    				<button class="pull-right" style="color: red" onclick="$('#modal_apercu2').hide();">X</button>
+
+    				<table>
+    					<tr>
+    					
+    						<div class="mb-content">
+    							<img height="500" class="col-sm-12" id="img01">
+
+    						</div>
+    				
+    					</tr>
+
+    				</table>
+
+
+    				
+    			</center>
+    			
+    			
+    		
+    		
+
+    	</div>
+    </div>
+</div>
          <!-- END MESSAGE BOX-->
  
       
@@ -1164,7 +1278,22 @@ for(var i = 1; i < elements2.length; ++i){
 		
 		});
 	///######################################
+	     function affiche(img){
+        
+	 $("#modal_apercu2").show();
+	//var modal = document.getElementById('modal_apercu');
+	var modalImg = document.getElementById('img01')
 
+	var captionText = document.getElementById("caption");
+	
+    modalImg.src = img.src;
+	
+
+    captionText.innerHTML = img.alt;
+	//alert(captionText.innerHTML);
+	// img.id.css('visibility','hidden');
+	
+}
 	
 		
 		
@@ -1194,7 +1323,11 @@ border: 2px solid #dce4ec;
 z-index:1;
 	}		
  
-	
+	img:hover 
+	{
+		opacity: 0.7;
+		cursor: pointer;
+	}
 	</style>
     
 

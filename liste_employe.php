@@ -941,8 +941,9 @@ if ($user->type =='administrateur' or 'Admin_dsp'){
 							<thead>
 								<tr>
 									<th style="width:100px !important">Mouvement  </th>
-
+									<th>Photo</th>
 									<th>Type d'établissement</th>
+
 
 
 									<th>Specialite</th>
